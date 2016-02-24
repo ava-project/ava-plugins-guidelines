@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package api;
+
+message Plugin {
+
+  string name = 1;
+  string command = 2;
+}
