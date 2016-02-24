@@ -1,7 +1,7 @@
 #include "ava_api.pb.h"
 
-#include <assert.h>
 #include <iostream>
+#include <assert.h>
 #define NDEBUG
 
 
@@ -36,9 +36,34 @@ void serialization() {
   assert(s1 == s2);
 }
 
+void description() {
+  api::Plugin plugin;
+  const google::protobuf::Descriptor* descriptor = plugin.GetDescriptor();
+  const google::protobuf::FieldDescriptor* name_field = descriptor->FindFieldByName("name");
+
+  plugin.set_name("test");
+
+  assert(name_field != NULL);
+  assert(name_field->type() == google::protobuf::FieldDescriptor::TYPE_STRING);
+}
+
+void reflection() {
+  api::Plugin plugin;
+  const google::protobuf::Reflection* reflection = plugin.GetReflection();
+  const google::protobuf::Descriptor* descriptor = plugin.GetDescriptor();
+  const google::protobuf::FieldDescriptor* name_field = descriptor->FindFieldByName("name");
+
+  plugin.set_name("emacs");
+  assert(reflection->GetString(plugin, name_field) == "emacs");
+}
+
 int main() {
 
+  // Following functions provide a quick approach of Google Protocol buffers.
+  // The purpose here is to ensure that the basics features are mastered.
   basic();
   serialization();
+  description();
+  reflection();
   return 0;
 }
