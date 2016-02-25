@@ -2,8 +2,17 @@ syntax = "proto3";
 
 package api;
 
+
+service LecheMesCouilles {
+  rpc rapeagland(Plugin) returns (Reply) {}
+}
+
 message Plugin {
 
   string name = 1;
   string command = 2;
+}
+
+message Reply {
+  string message = 1;
 }

@@ -37,6 +37,7 @@ void protobuf_AssignDesc_ava_5fapi_2eproto();
 void protobuf_ShutdownFile_ava_5fapi_2eproto();
 
 class Plugin;
+class Reply;
 
 // ===================================================================
 
@@ -133,6 +134,89 @@ class Plugin : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Plugin* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Reply : public ::google::protobuf::Message {
+ public:
+  Reply();
+  virtual ~Reply();
+
+  Reply(const Reply& from);
+
+  inline Reply& operator=(const Reply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Reply& default_instance();
+
+  void Swap(Reply* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Reply* New() const { return New(NULL); }
+
+  Reply* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Reply& from);
+  void MergeFrom(const Reply& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(Reply* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string message = 1;
+  void clear_message();
+  static const int kMessageFieldNumber = 1;
+  const ::std::string& message() const;
+  void set_message(const ::std::string& value);
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  ::std::string* mutable_message();
+  ::std::string* release_message();
+  void set_allocated_message(::std::string* message);
+
+  // @@protoc_insertion_point(class_scope:api.Reply)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr message_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_ava_5fapi_2eproto();
+  friend void protobuf_AssignDesc_ava_5fapi_2eproto();
+  friend void protobuf_ShutdownFile_ava_5fapi_2eproto();
+
+  void InitAsDefaultInstance();
+  static Reply* default_instance_;
+};
 // ===================================================================
 
 
@@ -227,7 +311,56 @@ inline void Plugin::set_allocated_command(::std::string* command) {
   // @@protoc_insertion_point(field_set_allocated:api.Plugin.command)
 }
 
+// -------------------------------------------------------------------
+
+// Reply
+
+// optional string message = 1;
+inline void Reply::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Reply::message() const {
+  // @@protoc_insertion_point(field_get:api.Reply.message)
+  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Reply::set_message(const ::std::string& value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:api.Reply.message)
+}
+inline void Reply::set_message(const char* value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:api.Reply.message)
+}
+inline void Reply::set_message(const char* value, size_t size) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:api.Reply.message)
+}
+inline ::std::string* Reply::mutable_message() {
+  
+  // @@protoc_insertion_point(field_mutable:api.Reply.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Reply::release_message() {
+  
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Reply::set_allocated_message(::std::string* message) {
+  if (message != NULL) {
+    
+  } else {
+    
+  }
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:api.Reply.message)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
