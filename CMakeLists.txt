@@ -25,11 +25,18 @@ else()
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-ignored-qualifiers -Wno-unused-parameter")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lgrpc++_unsecure -lgrpc -lprotobuf -lpthread -ldl")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-variable -lpthread -g")
 
 include_directories(test)
 
 add_executable(test_api test/ava_api.pb.cc
-                    test/main.cpp)
+                    test/protobuf/main.cpp)
 
 target_link_libraries(test_api ${PROTOBUF_LIBRARY})
+
+add_executable(client test/ava_api.grpc.pb.cc
+                      test/grpc/client.cc)
+
+target_link_libraries(client ${PROTOBUF_LIBRARY})
+                      
