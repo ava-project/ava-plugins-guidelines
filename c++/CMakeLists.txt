@@ -28,15 +28,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-ignored-qualifiers -Wno-unused-para
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lgrpc++_unsecure -lgrpc -lprotobuf -lpthread -ldl")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-variable -lpthread -g")
 
-include_directories(test)
+add_executable(test_api_serialization_protocol ava_api.pb.cc
+                    main.cpp)
 
-add_executable(test_api test/ava_api.pb.cc
-                    test/protobuf/main.cpp)
-
-target_link_libraries(test_api ${PROTOBUF_LIBRARY})
-
-add_executable(client test/ava_api.grpc.pb.cc
-                      test/grpc/client.cc)
-
-target_link_libraries(client ${PROTOBUF_LIBRARY})
-                      
+target_link_libraries(test_api_serialization_protocol ${PROTOBUF_LIBRARY})
