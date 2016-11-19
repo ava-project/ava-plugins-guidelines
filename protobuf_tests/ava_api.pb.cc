@@ -31,6 +31,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
+void protobuf_AssignDesc_ava_5fapi_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_ava_5fapi_2eproto() {
   protobuf_AddDesc_ava_5fapi_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -78,6 +79,7 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_ava_5fapi_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -95,6 +97,7 @@ void protobuf_ShutdownFile_ava_5fapi_2eproto() {
   delete Reply_reflection_;
 }
 
+void protobuf_AddDesc_ava_5fapi_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_ava_5fapi_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -104,8 +107,8 @@ void protobuf_AddDesc_ava_5fapi_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rava_api.proto\022\003api\"\'\n\006Plugin\022\014\n\004name\030\001"
     " \001(\t\022\017\n\007command\030\002 \001(\t\"\030\n\005Reply\022\017\n\007messag"
-    "e\030\001 \001(\t2;\n\020LecheMesCouilles\022\'\n\nrapeaglan"
-    "d\022\013.api.Plugin\032\n.api.Reply\"\000b\006proto3", 156);
+    "e\030\001 \001(\t2+\n\006Daemon\022!\n\004send\022\013.api.Plugin\032\n"
+    ".api.Reply\"\000b\006proto3", 140);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ava_api.proto", &protobuf_RegisterTypes);
   Plugin::default_instance_ = new Plugin();
@@ -121,16 +124,6 @@ struct StaticDescriptorInitializer_ava_5fapi_2eproto {
     protobuf_AddDesc_ava_5fapi_2eproto();
   }
 } static_descriptor_initializer_ava_5fapi_2eproto_;
-
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
-static void MergeFromFail(int line) {
-  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
-}
-
-}  // namespace
-
 
 // ===================================================================
 
@@ -203,13 +196,14 @@ Plugin* Plugin::New(::google::protobuf::Arena* arena) const {
 }
 
 void Plugin::Clear() {
+// @@protoc_insertion_point(message_clear_start:api.Plugin)
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   command_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool Plugin::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:api.Plugin)
   for (;;) {
@@ -297,8 +291,8 @@ void Plugin::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:api.Plugin)
 }
 
-::google::protobuf::uint8* Plugin::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Plugin::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:api.Plugin)
   // optional string name = 1;
   if (this->name().size() > 0) {
@@ -327,6 +321,7 @@ void Plugin::SerializeWithCachedSizes(
 }
 
 int Plugin::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:api.Plugin)
   int total_size = 0;
 
   // optional string name = 1;
@@ -350,19 +345,27 @@ int Plugin::ByteSize() const {
 }
 
 void Plugin::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:api.Plugin)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const Plugin* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const Plugin>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:api.Plugin)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:api.Plugin)
     MergeFrom(*source);
   }
 }
 
 void Plugin::MergeFrom(const Plugin& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:api.Plugin)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -374,12 +377,14 @@ void Plugin::MergeFrom(const Plugin& from) {
 }
 
 void Plugin::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:api.Plugin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Plugin::CopyFrom(const Plugin& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:api.Plugin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -442,6 +447,7 @@ void Plugin::clear_name() {
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Plugin::release_name() {
+  // @@protoc_insertion_point(field_release:api.Plugin.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -485,6 +491,7 @@ void Plugin::clear_command() {
   return command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Plugin::release_command() {
+  // @@protoc_insertion_point(field_release:api.Plugin.command)
   
   return command_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -568,12 +575,13 @@ Reply* Reply::New(::google::protobuf::Arena* arena) const {
 }
 
 void Reply::Clear() {
+// @@protoc_insertion_point(message_clear_start:api.Reply)
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool Reply::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:api.Reply)
   for (;;) {
@@ -634,8 +642,8 @@ void Reply::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:api.Reply)
 }
 
-::google::protobuf::uint8* Reply::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Reply::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:api.Reply)
   // optional string message = 1;
   if (this->message().size() > 0) {
@@ -653,6 +661,7 @@ void Reply::SerializeWithCachedSizes(
 }
 
 int Reply::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:api.Reply)
   int total_size = 0;
 
   // optional string message = 1;
@@ -669,19 +678,27 @@ int Reply::ByteSize() const {
 }
 
 void Reply::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:api.Reply)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const Reply* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const Reply>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:api.Reply)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:api.Reply)
     MergeFrom(*source);
   }
 }
 
 void Reply::MergeFrom(const Reply& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:api.Reply)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.message().size() > 0) {
 
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
@@ -689,12 +706,14 @@ void Reply::MergeFrom(const Reply& from) {
 }
 
 void Reply::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:api.Reply)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Reply::CopyFrom(const Reply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:api.Reply)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -756,6 +775,7 @@ void Reply::clear_message() {
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Reply::release_message() {
+  // @@protoc_insertion_point(field_release:api.Reply.message)
   
   return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

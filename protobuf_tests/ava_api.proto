@@ -3,8 +3,8 @@ syntax = "proto3";
 package api;
 
 
-service LecheMesCouilles {
-  rpc rapeagland(Plugin) returns (Reply) {}
+service Daemon {
+  rpc send(Plugin) returns (Reply) {}
 }
 
 message Plugin {

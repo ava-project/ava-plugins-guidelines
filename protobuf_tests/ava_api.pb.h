@@ -41,7 +41,7 @@ class Reply;
 
 // ===================================================================
 
-class Plugin : public ::google::protobuf::Message {
+class Plugin : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:api.Plugin) */ {
  public:
   Plugin();
   virtual ~Plugin();
@@ -75,7 +75,11 @@ class Plugin : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -136,7 +140,7 @@ class Plugin : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Reply : public ::google::protobuf::Message {
+class Reply : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:api.Reply) */ {
  public:
   Reply();
   virtual ~Reply();
@@ -170,7 +174,11 @@ class Reply : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -255,6 +263,7 @@ inline ::std::string* Plugin::mutable_name() {
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Plugin::release_name() {
+  // @@protoc_insertion_point(field_release:api.Plugin.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -298,6 +307,7 @@ inline ::std::string* Plugin::mutable_command() {
   return command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Plugin::release_command() {
+  // @@protoc_insertion_point(field_release:api.Plugin.command)
   
   return command_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -345,6 +355,7 @@ inline ::std::string* Reply::mutable_message() {
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Reply::release_message() {
+  // @@protoc_insertion_point(field_release:api.Reply.message)
   
   return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
