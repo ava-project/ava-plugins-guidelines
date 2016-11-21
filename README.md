@@ -1,31 +1,23 @@
 # AVA API
 
 
-# Choix des technologies:
+# Choice of technologies
 
 
 # Serialisaton:
 
 - Google Protocol Buffer:
 
-Language de serialisation neutre, indépendant de la plateforme et conçu pour sérialiser des données structurées.
-Semblable au XML mais plus rapide plus léger plus performant.
-De plus il permet de choisir nous mêmes comment structurer les données.
+Google Protocol Buffer are Google's language-neutral, platform-neutral,
+extensible mechanism for serializing structured data.
 
 
 # Communication:
 
-- gRPC:
+A c++11 network library is currently under development. This library will have
+no dependencies and will work only with c++11 features.
+The library will provide:
 
-Framework RPC open-source. Il permet de définir ses propres services grâce au protocole buffers.
-Fonctionne avec tous les languages et les plateformes.
-Offre de nombreux avantages:
-
-* Bi-directionnal streaming
-
-* systemes d'authentification intégrés:
-  Credentials channels & calls
-  Google token-based authentication
-
-
-* Error handling & debugging
+- TCP server (endpoint for the API)
+- Thread Pool
+- Events listener to dispatch correctly and effectively incoming connections
