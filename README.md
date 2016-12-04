@@ -1,5 +1,11 @@
 # AVA API
 
+# Usage
+
+```bash
+  git clone --recursive https://github.com/ava-project/ava-api
+```
+
 
 # Choice of technologies
 
