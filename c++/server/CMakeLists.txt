@@ -15,7 +15,7 @@ set(NETLIB_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include CACHE INTERNAL "")
 # Compilation
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
- set(warnings "-Wall -Wextra")
+ set(warnings "-Wall -Wextra -Werror")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
  set(warnings "/W4 /WX /EHsc")
 endif()
@@ -32,9 +32,9 @@ else()
  message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11/14 support. Please use a different C++ compiler.")
 endif()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-ignored-qualifiers -Wno-unused-parameter")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-variable -lpthread -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -g")
 
-include_directories(include)
+include_directories(work_in_progress)
+include_directories(tested/Netlib/include)
 
 add_executable(test_server main.cpp)
