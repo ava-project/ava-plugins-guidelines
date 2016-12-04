@@ -10,7 +10,7 @@
 # Choice of technologies
 
 
-# Serializaton:
+# Serialization:
 
 - Google Protocol Buffer:
 
