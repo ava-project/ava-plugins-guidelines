@@ -9,7 +9,7 @@ import ("log"
 )
 
 const (
-      port = ":50051"
+      port = ":27017"
 )
 
 type server struct{}
