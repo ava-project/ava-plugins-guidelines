@@ -1,22 +1,39 @@
-#include "Netlib.hpp"
-#include "wip.hpp"
+#include "Hermes.hpp"
 
-using namespace netlib;
+using namespace hermes::network::tcp;
 
-int main() {
-  network::tcp::server server;
+std::condition_variable condvar;
 
-  auto callback = [](const std::string& cmd,
-                     std::shared_ptr<network::tcp::client>& client) {
-    int res = std::system(std::string(cmd).c_str());
+void sig_handler(int) { condvar.notify_all(); }
 
-    client->send(not res ? "Command correctly executed.\n"
-                         : "Failed executing given command.\n");
+int main(void) {
+  server server;
 
-    client->disconnect();
-  };
+  server.on_connection([](const std::shared_ptr<client> &client) {
 
-  server.on_accept(callback);
-  server.run("192.168.0.106", 8888);
-  server.stop();
+    client->async_receive(1024, [&](bool success, std::vector<char> buffer) {
+      if (success) {
+        int res = std::system(std::string(buffer.data()).c_str());
+
+        client->async_send(
+            not res ? "Command correctly executed\n"
+                    : "Failed executing given command\n",
+            [&](bool success, std::size_t bytes) { client->disconnect(); });
+
+      } else
+        client->disconnect();
+
+    });
+
+  });
+
+  server.run("127.0.0.1", 27017);
+
+  signal(SIGINT, &sig_handler);
+
+  std::mutex mutex;
+  std::unique_lock<std::mutex> lock(mutex);
+  condvar.wait(lock);
+
+  return 0;
 }
