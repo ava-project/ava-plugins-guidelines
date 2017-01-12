@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mkdir build; cd build ; cmake ../ ; make ; clear ; ./test_server ; cd .. ; rm -rf build ; clear ; ls
+mkdir build; cd build ; cmake ../ ; make ; ./test_server ; cd ..
