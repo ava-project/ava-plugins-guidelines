@@ -2,10 +2,6 @@
 
 using namespace hermes::network::tcp;
 
-std::condition_variable condvar;
-
-void sig_handler(int) { condvar.notify_all(); }
-
 void send_callback(const std::shared_ptr<client> &client, bool success,
                    std::size_t bytes_sent) {
   if (success)
@@ -41,12 +37,6 @@ int main(void) {
   });
 
   server.run("127.0.0.1", 27017);
-
-  signal(SIGINT, &sig_handler);
-
-  std::mutex mutex;
-  std::unique_lock<std::mutex> lock(mutex);
-  condvar.wait(lock);
-
+  hermes::tools::wait_for_signal(SIGINT);
   return 0;
 }
