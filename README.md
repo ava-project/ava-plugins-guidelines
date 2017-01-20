@@ -1,29 +1,30 @@
 # AVA API
 
-# Usage
+
+### Usage
+
 
 ```bash
   git clone --recursive https://github.com/ava-project/ava-api
 ```
 
 
-# Choice of technologies
+## Choice of technologies
 
 
-# Serialization:
+### Serialization:
 
-- Google Protocol Buffer:
+- [Google protocol buffer](https://github.com/google/protobuf):
 
 Google Protocol Buffer are Google's language-neutral, platform-neutral,
 extensible mechanism for serializing structured data.
 
 
-# Communication:
+### Communication:
 
-A c++11 network library is currently under development. This library will have
-no dependencies and will work only with c++11 features.
-The library will provide:
+c++11 Network library: [Hermes](https://github.com/TommyStarK/Hermes)
 
-- TCP server (endpoint for the API)
-- Thread Pool
-- Events listener to dispatch correctly and effectively incoming connections
+
+## Wiki
+
+A [wiki](https://github.com/ava-project/ava-api/wiki) providing a full documentation is available.
