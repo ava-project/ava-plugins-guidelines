@@ -1,3 +1,4 @@
-[submodule "c++/tested/Hermes"]
-	path = c++/tested/Hermes
-	url = https://github.com/TommyStarK/Hermes.git
+
+[submodule "python/PNL"]
+	path = python/PNL
+	url = https://github.com/TommyStarK/PNL
