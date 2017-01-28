@@ -1,4 +1,10 @@
 
-[submodule "python/PNL"]
-	path = python/PNL
+[submodule "api_core/PNL"]
+	path = api_core/PNL
 	url = https://github.com/TommyStarK/PNL
+[submodule "api_python/PNL"]
+	path = api_python/PNL
+	url = https://github.com/TommyStarK/PNL
+[submodule "api_cpp/includes/Hermes"]
+	path = api_cpp/includes/Hermes
+	url = https://github.com/TommyStarK/Hermes
